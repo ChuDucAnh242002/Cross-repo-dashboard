@@ -96,6 +96,10 @@ journalctl --user -u cross-repo-heartbeat.service -n 30 --no-pager
 ```
 
 No token is copied into the unit: `gh` uses the account's existing credentials.
+The heartbeat posts as that account; GitHub may not notify you about your own
+actions. Issue publication is verified, not email/push delivery. Use a separate
+bot identity or external alert destination if independent notification delivery
+is required.
 The timer is independent of Actions but **not** of this machine: sleep, shutdown,
 logout without lingering, or expired credentials interrupt checks. Use an
 always-on host for dependable monitoring; lingering is not enabled automatically.
